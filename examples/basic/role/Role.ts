@@ -6,8 +6,7 @@ import {
   GraphQLString,
 } from 'graphql'
 import { v4 as uuid } from 'uuid'
-import { getQuery } from '../../index'
-import { FieldConfigMap } from '../../types'
+import { getQuery, FieldConfigMap } from '@userlab/dx'
 import { UserType } from '../user'
 
 export interface Role {
