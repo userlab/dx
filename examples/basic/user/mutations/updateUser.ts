@@ -1,5 +1,5 @@
 import { GraphQLString, GraphQLNonNull, GraphQLID } from 'graphql'
-import { getMutation, dbTransaction } from '../../../index'
+import { getMutation, dbTransaction } from '@userlab/dx'
 import { dbOptions } from '../../constants'
 import { AppContext } from '../../types'
 import { User, UserModel, UserType } from '../User'
