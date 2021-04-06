@@ -1,0 +1,87 @@
+{
+  "name": "@userlab/dx",
+  "description": "Build efficient GraphQL backend",
+  "version": "0.1.1",
+  "author": "Kenneth Riveiro <kalcuadrado@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "test": "jest",
+    "start": "ts-node-dev src/example/index.ts",
+    "clean": "rm -rf lib",
+    "prebuild": "yarn clean",
+    "build": "tsc",
+    "lint": "eslint . --ext .ts",
+    "prettier": "prettier \"**/*.+(ts|js|json)\" --ignore-path .gitignore --loglevel error",
+    "format": "yarn prettier --write",
+    "format-check": "yarn prettier --list-different",
+    "prevalidate": "yarn format",
+    "validate": "npm-run-all --parallel format-check lint build",
+    "prepublishOnly": "yarn validate"
+  },
+  "dependencies": {
+    "graphql": "^15.5.0",
+    "join-monster": "^3.0.1",
+    "pg": "^8.5.1"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.10",
+    "@types/express": "^4.17.11",
+    "@types/jest": "^26.0.22",
+    "@types/pg": "^7.14.11",
+    "@types/uuid": "^8.3.0",
+    "@typescript-eslint/eslint-plugin": "^4.21.0",
+    "@typescript-eslint/parser": "^4.21.0",
+    "cors": "^2.8.5",
+    "eslint": "^7.23.0",
+    "eslint-config-prettier": "^8.1.0",
+    "express": "^4.17.1",
+    "express-graphql": "^0.12.0",
+    "jest": "^26.6.3",
+    "npm-run-all": "^4.1.5",
+    "ts-jest": "^26.5.4",
+    "ts-node-dev": "^1.1.6",
+    "typescript": "^4.2.3",
+    "uuid": "^8.3.2"
+  },
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "files": [
+    "lib/**/*"
+  ],
+  "homepage": "github:userlab/dx#readme",
+  "repository": "github:userlab/dx",
+  "bugs": "github:userlab/dx/issues",
+  "keywords": [
+    "dexter",
+    "dx",
+    "graphql",
+    "orm",
+    "pg",
+    "postgres"
+  ],
+  "jest": {
+    "preset": "ts-jest",
+    "verbose": true,
+    "moduleDirectories": [
+      "node_modules",
+      "src"
+    ]
+  },
+  "lint-staged": {
+    "*.{js,ts,jsx,tsx}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.{md,html,json}": [
+      "prettier --write"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn types-check && lint-staged"
+    }
+  },
+  "directories": {
+    "lib": "lib"
+  }
+}
