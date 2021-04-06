@@ -1,7 +1,7 @@
 {
   "name": "@userlab/dx",
   "description": "Build efficient GraphQL backend",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "author": "Kenneth Riveiro <kalcuadrado@gmail.com>",
   "license": "MIT",
   "scripts": {
